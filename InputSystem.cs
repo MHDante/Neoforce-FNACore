@@ -25,7 +25,6 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.GamerServices;
 ////////////////////////////////////////////////////////////////////////////
 
 #endregion
@@ -393,7 +392,7 @@ namespace TomShane.Neoforce.Controls
     ////////////////////////////////////////////////////////////////////////////
     public virtual void Update(GameTime gameTime)
     {
-      if (manager.UseGuide && Guide.IsVisible) return;
+      // if (manager.UseGuide && Guide.IsVisible) return;
       
       #if (!XBOX && !XBOX_FAKE)
         MouseState ms = Mouse.GetState();
@@ -411,12 +410,13 @@ namespace TomShane.Neoforce.Controls
         if ((inputMethods & InputMethods.GamePad) == InputMethods.GamePad)
         {
           PlayerIndex index = PlayerIndex.One;
-          if (Gamer.SignedInGamers.Count > 0 && activePlayer == ActivePlayer.None)
-          {
-            int i = 0; // Have to be done this way, else it crashes for player other than one
-            index = Gamer.SignedInGamers[i].PlayerIndex;
-          }                      
-          else if (activePlayer != ActivePlayer.None)
+          //if (Gamer.SignedInGamers.Count > 0 && activePlayer == ActivePlayer.None)
+          //{
+          //  int i = 0; // Have to be done this way, else it crashes for player other than one
+          //  index = Gamer.SignedInGamers[i].PlayerIndex;
+          //}
+          //else
+          if (activePlayer != ActivePlayer.None)
           {
             index = (PlayerIndex)activePlayer;
           }        

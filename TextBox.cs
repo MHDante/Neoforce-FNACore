@@ -29,7 +29,7 @@ using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Microsoft.Xna.Framework.GamerServices;
+//using Microsoft.Xna.Framework.GamerServices;
 ////////////////////////////////////////////////////////////////////////////
 
 #endregion
@@ -136,7 +136,7 @@ namespace TomShane.Neoforce.Controls
     private double flashTime = 0;
     private int posx = 0;
     private int posy = 0;
-    private char passwordChar = '•';
+    private char passwordChar = 'â€¢';
     private TextBoxMode mode = TextBoxMode.Normal;
     private string shownText = "";
     private bool readOnly = false;
@@ -1016,7 +1016,7 @@ namespace TomShane.Neoforce.Controls
     {
       flashTime = 0;
       
-      if (Manager.UseGuide && Guide.IsVisible) return;
+      //if (Manager.UseGuide && Guide.IsVisible) return;
       
       if (!e.Handled)
       {
@@ -1256,7 +1256,7 @@ namespace TomShane.Neoforce.Controls
     ////////////////////////////////////////////////////////////////////////////        
     protected override void OnGamePadDown(GamePadEventArgs e)
     {
-      if (Manager.UseGuide && Guide.IsVisible) return;
+      //if (Manager.UseGuide && Guide.IsVisible) return;
 
       if (!e.Handled)
       {
@@ -1273,18 +1273,18 @@ namespace TomShane.Neoforce.Controls
     ////////////////////////////////////////////////////////////////////////////
     private void HandleGuide(PlayerIndex pi)
     {
-      if (Manager.UseGuide && !Guide.IsVisible)
-      {        
-        Guide.BeginShowKeyboardInput(pi, "Enter Text", "", Text, GetText, pi.ToString());
-      }   
+      //if (Manager.UseGuide && !Guide.IsVisible)
+      //{
+      //  Guide.BeginShowKeyboardInput(pi, "Enter Text", "", Text, GetText, pi.ToString());
+      //}
     }
     ////////////////////////////////////////////////////////////////////////////
     
     ////////////////////////////////////////////////////////////////////////////
     private void GetText(IAsyncResult result)
     {      
-      string res = Guide.EndShowKeyboardInput(result);
-      Text = res != null ? res : "";
+      //string res = Guide.EndShowKeyboardInput(result);
+      //Text = res != null ? res : "";
       Pos = text.Length;
     }
     ////////////////////////////////////////////////////////////////////////////

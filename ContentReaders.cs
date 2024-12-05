@@ -127,15 +127,15 @@ namespace TomShane.Neoforce.Controls
                     i.Dispose();
                 }
                 //TODO: Replace with xml based solution for getting hotspot and size instead
-                IntPtr handle = NativeMethods.LoadCursor(path);
-                System.Windows.Forms.Cursor c = new System.Windows.Forms.Cursor(handle);
-                Vector2 hs = new Vector2(c.HotSpot.X, c.HotSpot.Y);
-                int w = c.Size.Width;
-                int h = c.Size.Height;
-                c.Dispose();
+                //IntPtr handle = NativeMethods.LoadCursor(path);
+                //System.Windows.Forms.Cursor c = new System.Windows.Forms.Cursor(handle);
+                //Vector2 hs = new Vector2(0,0);
+                //int w = c.Size.Width;
+                //int h = c.Size.Height;
+                //c.Dispose();
                 File.Delete(path);
 
-                return new Cursor(tPath, hs, w, h);
+                return new Cursor(tPath, new Vector2(0,0), 100, 100);
             }
             else
             {
@@ -152,4 +152,3 @@ namespace TomShane.Neoforce.Controls
 #endif
 
 }
-

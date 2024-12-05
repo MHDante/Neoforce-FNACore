@@ -1593,7 +1593,7 @@ namespace TomShane.Neoforce.Controls
             if (ModalWindow != null)
             {
 #if (!XBOX && !XBOX_FAKE)
-                SystemSounds.Beep.Play();
+                //SystemSounds.Beep.Play();
 #endif
             }
         }
