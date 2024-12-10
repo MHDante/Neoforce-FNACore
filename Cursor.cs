@@ -17,11 +17,11 @@ namespace TomShane.Neoforce.Controls
 
         public Texture2D CursorTexture
         {
-            get { return cursorTexture;}
+            get { return cursorTexture; }
             set { cursorTexture = value; }
         }
 
-        internal string cursorPath;
+        internal Color[] pixels;
 
         private Vector2 hotspot;
         private int width;
@@ -45,12 +45,20 @@ namespace TomShane.Neoforce.Controls
             set { hotspot = value; }
         }
 
-        public Cursor(string path, Vector2 hotspot, int width, int height)
+        public Cursor(Color[] pixels, int width, int height, int hotspotX, int hotspotY)
         {
-            this.cursorPath = path;
-            this.hotspot = hotspot;
+            this.pixels = pixels;
+            this.hotspot = new Vector2((float)hotspotX / width, (float)hotspotY / height);
             this.width = width;
             this.height = height;
+        }
+
+        public void LoadTextureIfNeeded(GraphicsDevice gDevice)
+        {
+            if (CursorTexture != null) return;
+            var tex = new Texture2D(gDevice, Width, Height);
+            tex.SetData(pixels);
+            CursorTexture = tex;
         }
     }
 }

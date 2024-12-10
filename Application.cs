@@ -26,10 +26,6 @@ using Microsoft.Xna.Framework.Graphics;
 using TomShane.Neoforce.Controls;
 using System;
 
-#if (!XBOX && !XBOX_FAKE)
-using System.Windows.Forms;
-#endif
-
 ////////////////////////////////////////////////////////////////////////////
 
 #endregion

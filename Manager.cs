@@ -65,8 +65,8 @@ namespace TomShane.Neoforce.Controls
         ////////////////////////////////////////////////////////////////////////////        
         internal Version _SkinVersion = new Version(0, 7);
         internal Version _LayoutVersion = new Version(0, 7);
-        internal const string _SkinDirectory = ".\\Content\\Skins\\";
-        internal const string _LayoutDirectory = ".\\Content\\Layout\\";
+        internal const string _SkinDirectory = "Content\\Skins\\";
+        internal const string _LayoutDirectory = "Content\\Layout\\";
         internal const string _DefaultSkin = "Default";
         internal const string _SkinExtension = ".skin";
         internal const int _MenuDelay = 500;
@@ -752,11 +752,7 @@ namespace TomShane.Neoforce.Controls
         public void SetCursor(Cursor cursor)
         {
             this.cursor = cursor;
-            if (this.cursor.CursorTexture == null)
-            {
-                this.cursor.CursorTexture = Texture2D.FromStream(GraphicsDevice, new FileStream(
-                    this.cursor.cursorPath, FileMode.Open, FileAccess.ReadWrite, FileShare.None));
-            }
+            this.cursor.LoadTextureIfNeeded(GraphicsDevice);
         }
         ////////////////////////////////////////////////////////////////////////////
 
@@ -1194,11 +1190,7 @@ namespace TomShane.Neoforce.Controls
 
                 if (softwareCursor && Cursor != null)
                 {
-                    if (this.cursor.CursorTexture == null)
-                    {
-                        this.cursor.CursorTexture = Texture2D.FromStream(GraphicsDevice, new FileStream(
-                            this.cursor.cursorPath, FileMode.Open, FileAccess.ReadWrite, FileShare.None));
-                    }
+                    cursor.LoadTextureIfNeeded(GraphicsDevice);
                     renderer.SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
                     MouseState mstate = Mouse.GetState();
                     Rectangle rect = new Rectangle(mstate.X, mstate.Y, Cursor.Width, Cursor.Height);

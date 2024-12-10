@@ -30,6 +30,8 @@ namespace TomShane.Neoforce.External.Zip
             {
                 if (_readstream == null)
                 {
+
+                    _name = _name.Replace("\\", "/");
                     _readstream = System.IO.File.OpenRead(_name);
                 }
                 return _readstream;

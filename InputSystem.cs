@@ -547,7 +547,7 @@ namespace TomShane.Neoforce.Controls
       
       KeyEventArgs e = new KeyEventArgs();
       
-      e.Caps = (((ushort)NativeMethods.GetKeyState(0x14)) & 0xffff) != 0;      
+      //e.Caps = (((ushort)NativeMethods.GetKeyState(0x14)) & 0xffff) != 0;
       
       foreach (Keys key in state.GetPressedKeys())
       {

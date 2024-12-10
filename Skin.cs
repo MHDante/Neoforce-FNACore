@@ -627,10 +627,10 @@ namespace TomShane.Neoforce.Controls
         ////////////////////////////////////////////////////////////////////////////     
         private string GetArchiveLocation(string name)
         {
-            string path = Path.GetFullPath(Manager.SkinDirectory) + Path.GetFileNameWithoutExtension(name) + "\\";
+            string path = Manager.SkinDirectory + Path.GetFileNameWithoutExtension(name) + "\\";
             if (!Directory.Exists(path) || !File.Exists(path + "Skin.xnb"))
             {
-                path = Path.GetFullPath(Manager.SkinDirectory) + name;
+                path = Manager.SkinDirectory + name;
                 return path;
             }
 
